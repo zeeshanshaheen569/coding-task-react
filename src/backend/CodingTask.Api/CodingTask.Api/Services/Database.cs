@@ -12,6 +12,10 @@ public class Database {
         
         _donationItems.Add(donationItem);
     }
+    
+    public IEnumerable<Currency> GetCurrencies() {
+        yield return new Currency("gbp", "£");
+    }
 
     public IEnumerable<DonationItem> GetDonationItems() => _donationItems;
 
@@ -20,6 +24,10 @@ public class Database {
         yield return new Location("sudan", "Sudan");
         yield return new Location("yemen", "Yemen");
         yield return new Location("unrestricted", "Where Most Needed");
+    }
+    
+    public IEnumerable<ReferenceType> GetReferenceTypes() {
+        yield return new ReferenceType("donationItem", "DI");
     }
     
     public IEnumerable<Status> GetStatuses() {

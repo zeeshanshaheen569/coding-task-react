@@ -17,7 +17,8 @@ public class DonationItemsController : ControllerBase {
     
     [HttpPost]
     public DonationItem AddDonationItem(NewDonationItem newItem) {
-        var reference = _counters.NextReference(ReferenceType.DonationItem);
+        var referenceType = _database.GetReferenceTypes().Single(x => x.Id == "donationItem");
+        var reference = _counters.NextReference(referenceType);
         var status = _database.GetStatuses().Single(x => x.Id == "active");
         Price? price = null;
         
@@ -30,9 +31,14 @@ public class DonationItemsController : ControllerBase {
                                                                StringComparison.InvariantCultureIgnoreCase));
 
         if (newItem.Price != null) {
-            price = new Price(newItem.Price.Currency,
-                              newItem.Price.Amount,
-                              $"{newItem.Price.Currency} {newItem.Price.Amount}");
+            var currency = _database.GetCurrencies().SingleOrDefault(x => x.Id.Equals(newItem.Price.CurrencyCode,
+                                                                                      StringComparison.InvariantCultureIgnoreCase));
+
+            if (currency != null && newItem.Price.Amount.HasValue) {
+                price = new Price(currency,
+                                  newItem.Price.Amount.Value,
+                                  $"{currency.Symbol}{newItem.Price.Amount}");
+            }
         }
         
         var donationItem = new DonationItem(Guid.NewGuid(),

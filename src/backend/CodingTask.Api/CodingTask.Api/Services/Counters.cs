@@ -6,7 +6,7 @@ public class Counters {
     private long _next = 1;
     
     public Reference NextReference(ReferenceType type) {
-        var reference = new Reference(type, _next, $"{type}-{_next}");
+        var reference = new Reference(type, _next, $"{type.Prefix}{_next}");
         
         _next++;
 

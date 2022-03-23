@@ -1,5 +1,11 @@
 ﻿namespace CodingTask.Api.Models; 
 
-public enum ReferenceType {
-    DonationItem
+public class ReferenceType {
+    public ReferenceType(string id, string prefix) {
+        Id = id;
+        Prefix = prefix;
+    }
+
+    public string Id { get; }
+    public string Prefix { get; }
 }
