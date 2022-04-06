@@ -15,6 +15,11 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseCors(policy => policy.AllowAnyHeader()
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .SetPreflightMaxAge(TimeSpan.FromMinutes(60)));
+
 app.MapControllers();
 
 app.Run();
