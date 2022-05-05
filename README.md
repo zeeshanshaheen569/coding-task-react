@@ -1,6 +1,6 @@
 ## Coding Task (React)
 
-This coding task is for a Frontend developer and assumes that you are familiar with React and REST.
+This coding task is for a frontend developer and assumes that you are familiar with React.
 
 Your task is to build a simple UI which consumes the provided API and demonstrates the below functionality.
 
@@ -16,9 +16,9 @@ There is no absolute time limit and we won't judge you on how long it took you t
 
 ### The Task
 
-Please build a simple UI which allows the user to view Donation Items and create new Donation Items.
+Please build a simple UI which allows the user to view donation items and create new donation items.
 
-A Donation Item is an item which can be donated towards by a donor, similar to a Product in an e-commerce setting.
+A donation item is an item which can be donated towards by a donor, similar to a product in an e-commerce setting.
 
 Using React, please build a simple UI (single page) which integrates with the API provided. The user should be able to:
 
@@ -30,9 +30,9 @@ Using React, please build a simple UI (single page) which integrates with the AP
   - Location
   - Theme
 - Filter the donation items by their Status
-- Add a new Donation Item
+- Add a new donation item
 
-To create a Donation Item, pass the following properties:
+To create a donation item, pass the following properties:
 
 | Property | Description                                                   | Validation                                                                                   | Required on Create Request |
 | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------- |
